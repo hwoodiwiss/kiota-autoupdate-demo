@@ -1,0 +1,64 @@
+name: update-api-client
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "**/*.gitattributes"
+      - "**/*.gitignore"
+      - "**/*.md"
+  workflow_dispatch:
+
+env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+  DOTNET_GENERATE_ASPNET_CERTIFICATE: false
+  DOTNET_MULTILEVEL_LOOKUP: 0
+  DOTNET_NOLOGO: true
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
+  DOTNET_SYSTEM_CONSOLE_ALLOW_ANSI_COLOR_REDIRECTION: 1
+  FORCE_COLOR: 1
+  NUGET_XMLDOC_MODE: skip
+  TERM: xterm
+
+jobs:
+  update-api-client:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+
+      - name: Update API Client Code
+        run: |
+          dotnet tool restore
+          dotnet build
+          nohup dotnet run --project ./src/AutoupdateDemoApi/AutoupdateDemoApi.csproj &
+          sleep 5
+          dotnet kiota generate -d http://localhost:50000/swagger/v1/swagger.json -l CSharp -o ./src/AutoupdateDemoApi.Client/generated -n AutoupdateDemoApi.Client -c AutoupdateDemoApiClient --clean-output
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if $(git --no-pager diff -- . :^**/kiota-lock.json); then
+            echo "No changes detected. Exiting..."
+            echo "Changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "Changes detected"
+            echo "Changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit changes and Create PR
+        if: ${{ steps.check_changes.outputs.Changes == 'true' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          branch_name="update-api-client-$(date +%s)"
+          git checkout -b $branch_name
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git add .
+          git commit -m "Update generated api client"
+          git push -u origin $branch_name
+          gh pr create --title "Update API Client" --body "This PR updates the API client" --base main --head $branch_name

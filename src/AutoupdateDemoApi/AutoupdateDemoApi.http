@@ -1,0 +1,6 @@
+@AutoupdateDemoApi_HostAddress = http://localhost:5127
+
+GET {{AutoupdateDemoApi_HostAddress}}/apple/1
+Accept: application/json
+
+###
