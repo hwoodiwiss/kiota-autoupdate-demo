@@ -1,6 +1,6 @@
 {
-  "descriptionHash": "49127D6B46284761500A0EBF3EFBDB236B6D8F5B470B26A77882DCB722CAA4D6EB0AC713DF48F6D06F8649941E0CBEA9A07FF1C42A98AB1D8FBE46100F96E54C",
-  "descriptionLocation": "https://localhost:50001/swagger/v1/swagger.json",
+  "descriptionHash": "F5A9548A3BCC4F6479D3576BE33B233CB01397D8B3ED5CF13F5A3A57CB20CC80219CFA21B82031E9DB083D0A49389E44364B22A1E14E13A134C5AF87F76A61DC",
+  "descriptionLocation": "http://localhost:50000/swagger/v1/swagger.json",
   "lockFileVersion": "1.0.0",
   "kiotaVersion": "1.12.0",
   "clientClassName": "AutoupdateDemoApiClient",
