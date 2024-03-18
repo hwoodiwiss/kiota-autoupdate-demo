@@ -20,5 +20,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.MapRestFor<Apple>();
+app.MapRestFor<Orange>();
 
 app.Run();
