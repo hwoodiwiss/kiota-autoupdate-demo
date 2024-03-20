@@ -13,17 +13,18 @@ builder.Services.ConfigureHttpClientDefaults(client =>
 {
     client.ConfigureHttpClient(c =>
     {
-        c.BaseAddress = new Uri("https://localhost:50001");
         c.DefaultRequestHeaders.Add("User-Agent", "AutoupdateDemoApi.Consumer");
     });
 });
 
-builder.Services.AddScoped<IRequestAdapter>((sp) =>
-{
-    var httpClientFactory = sp.GetRequiredService<IHttpClientFactory>();
-    return new HttpClientRequestAdapter(new AnonymousAuthenticationProvider(), httpClient: httpClientFactory.CreateClient());
-});
-builder.Services.AddScoped<AutoupdateDemoApiClient>();
+builder.Services.AddHttpClient<AutoupdateDemoApiClient>(client =>
+    {
+        client.BaseAddress = new Uri("https://localhost:50001"); // Or some actual config thang
+    })
+    .AddTypedClient((client, sp) =>
+    {
+        return new AutoupdateDemoApiClient(new HttpClientRequestAdapter(new AnonymousAuthenticationProvider(), httpClient: client));
+    });
 
 var app = builder.Build();
 
