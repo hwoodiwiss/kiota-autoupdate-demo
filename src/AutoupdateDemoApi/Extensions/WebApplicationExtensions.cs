@@ -9,7 +9,7 @@ public static class WebApplicationExtensions
         where TResource : new()
     {
         var type = typeof(TResource);
-        var route = $"/{type.Name.ToLowerInvariant()}";
+        var route = $"/{type.Name.ToLowerInvariant()}s";
         var group = routeBuilder.MapGroup(route)
             .WithOpenApi(o =>
             {
@@ -19,16 +19,21 @@ public static class WebApplicationExtensions
                 return o;
             });
 
+        group.MapGet("/", () => (TResource[])[new TResource()])
+            .Produces<TResource[]>()
+            .Produces(StatusCodes.Status404NotFound)
+            .Produces<ProblemDetails>(StatusCodes.Status500InternalServerError);
+
         group.MapGet("/{id}", (int id) => new TResource())
             .Produces<TResource>()
             .Produces(StatusCodes.Status404NotFound)
             .Produces<ProblemDetails>(StatusCodes.Status500InternalServerError);
 
-        group.MapPost("/", (TResource resource) => TypedResults.Json<TResource>(resource, statusCode: StatusCodes.Status201Created))
+        group.MapPost("/", (TResource resource) => TypedResults.Json(resource, statusCode: StatusCodes.Status201Created))
             .Produces<TResource>()
             .Produces<ProblemDetails>(StatusCodes.Status500InternalServerError);
 
-        group.MapPut("/{id}", (int id, TResource resource) => TypedResults.Json<TResource>(resource))
+        group.MapPut("/{id}", (int id, TResource resource) => TypedResults.Json(resource))
             .Produces<TResource>()
             .Produces(StatusCodes.Status404NotFound)
             .Produces<ProblemDetails>(StatusCodes.Status500InternalServerError);

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoupdateDemoApi", "src\Au
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoupdateDemoApi.Client", "src\AutoupdateDemoApi.Client\AutoupdateDemoApi.Client.csproj", "{80E20179-C259-4481-9FEE-D7D83F0C36D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoupdateDemoApi.Consumer", "src\AutoupdateDemoApi.Consumer\AutoupdateDemoApi.Consumer.csproj", "{830B5A6D-81EF-4DE4-A317-42DAE76D5A09}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,9 +28,14 @@ Global
 		{80E20179-C259-4481-9FEE-D7D83F0C36D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80E20179-C259-4481-9FEE-D7D83F0C36D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80E20179-C259-4481-9FEE-D7D83F0C36D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{830B5A6D-81EF-4DE4-A317-42DAE76D5A09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{830B5A6D-81EF-4DE4-A317-42DAE76D5A09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{830B5A6D-81EF-4DE4-A317-42DAE76D5A09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{830B5A6D-81EF-4DE4-A317-42DAE76D5A09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{41DE63A2-39F7-42C4-A140-2982B2CAC160} = {45D84CCE-A68C-44D9-ABBD-E5EAF570012B}
 		{80E20179-C259-4481-9FEE-D7D83F0C36D0} = {45D84CCE-A68C-44D9-ABBD-E5EAF570012B}
+		{830B5A6D-81EF-4DE4-A317-42DAE76D5A09} = {45D84CCE-A68C-44D9-ABBD-E5EAF570012B}
 	EndGlobalSection
 EndGlobal
