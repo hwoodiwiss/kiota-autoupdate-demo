@@ -46,7 +46,7 @@ namespace AutoupdateDemoApi.Client.Apples {
         public ApplesRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/apples", rawUrl) {
         }
         /// <summary>
-        /// RESTful API for Apple
+        /// RESTful API for Apples
         /// </summary>
         /// <returns>A List&lt;Apple&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -69,7 +69,7 @@ namespace AutoupdateDemoApi.Client.Apples {
             return collectionResult?.ToList();
         }
         /// <summary>
-        /// RESTful API for Apple
+        /// RESTful API for Apples
         /// </summary>
         /// <returns>A <see cref="Apple"/></returns>
         /// <param name="body">The request body</param>
@@ -91,7 +91,7 @@ namespace AutoupdateDemoApi.Client.Apples {
             return await RequestAdapter.SendAsync<Apple>(requestInfo, Apple.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// RESTful API for Apple
+        /// RESTful API for Apples
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -108,7 +108,7 @@ namespace AutoupdateDemoApi.Client.Apples {
             return requestInfo;
         }
         /// <summary>
-        /// RESTful API for Apple
+        /// RESTful API for Apples
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>

@@ -28,7 +28,7 @@ namespace AutoupdateDemoApi.Client.Oranges.Item {
         public OrangesItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/oranges/{id}", rawUrl) {
         }
         /// <summary>
-        /// RESTful API for Orange
+        /// RESTful API for Oranges
         /// </summary>
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -48,7 +48,7 @@ namespace AutoupdateDemoApi.Client.Oranges.Item {
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// RESTful API for Orange
+        /// RESTful API for Oranges
         /// </summary>
         /// <returns>A <see cref="Orange"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -70,7 +70,7 @@ namespace AutoupdateDemoApi.Client.Oranges.Item {
             return await RequestAdapter.SendAsync<Orange>(requestInfo, Orange.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// RESTful API for Orange
+        /// RESTful API for Oranges
         /// </summary>
         /// <returns>A <see cref="Orange"/></returns>
         /// <param name="body">The request body</param>
@@ -92,7 +92,7 @@ namespace AutoupdateDemoApi.Client.Oranges.Item {
             return await RequestAdapter.SendAsync<Orange>(requestInfo, Orange.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
-        /// RESTful API for Orange
+        /// RESTful API for Oranges
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -109,7 +109,7 @@ namespace AutoupdateDemoApi.Client.Oranges.Item {
             return requestInfo;
         }
         /// <summary>
-        /// RESTful API for Orange
+        /// RESTful API for Oranges
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -126,7 +126,7 @@ namespace AutoupdateDemoApi.Client.Oranges.Item {
             return requestInfo;
         }
         /// <summary>
-        /// RESTful API for Orange
+        /// RESTful API for Oranges
         /// </summary>
         /// <returns>A <see cref="RequestInformation"/></returns>
         /// <param name="body">The request body</param>
