@@ -14,7 +14,7 @@ public static class WebApplicationExtensions
             .WithOpenApi(o =>
             {
                 o.Summary = type.Name;
-                o.Description = $"RESTful API for {type.Name}";
+                o.Description = $"RESTful API for {type.Name}s";
                 o.Tags = [new OpenApiTag { Name = type.Name }];
                 return o;
             });

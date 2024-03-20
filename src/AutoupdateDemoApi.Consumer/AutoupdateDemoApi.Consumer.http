@@ -1,6 +1,6 @@
-@AutoupdateDemoApi.Consumer_HostAddress = http://localhost:5133
+@AutoupdateDemoApi_Consumer_HostAddress = http://localhost:40000
 
-GET {{AutoupdateDemoApi.Consumer_HostAddress}}/weatherforecast/
+GET {{AutoupdateDemoApi_Consumer_HostAddress}}/them-apples/
 Accept: application/json
 
 ###

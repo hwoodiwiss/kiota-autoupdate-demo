@@ -1,6 +1,6 @@
-@AutoupdateDemoApi_HostAddress = http://localhost:5127
+@AutoupdateDemoApi_HostAddress = http://localhost:50000
 
-GET {{AutoupdateDemoApi_HostAddress}}/apple/1
+GET {{AutoupdateDemoApi_HostAddress}}/apples/1
 Accept: application/json
 
 ###

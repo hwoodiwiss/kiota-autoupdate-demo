@@ -18,12 +18,12 @@ builder.Services.ConfigureHttpClientDefaults(client =>
     });
 });
 
-builder.Services.AddTransient<IRequestAdapter>((sp) =>
+builder.Services.AddScoped<IRequestAdapter>((sp) =>
 {
     var httpClientFactory = sp.GetRequiredService<IHttpClientFactory>();
     return new HttpClientRequestAdapter(new AnonymousAuthenticationProvider(), httpClient: httpClientFactory.CreateClient());
 });
-builder.Services.AddTransient<AutoupdateDemoApiClient>();
+builder.Services.AddScoped<AutoupdateDemoApiClient>();
 
 var app = builder.Build();
 
@@ -36,16 +36,14 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/test", (AutoupdateDemoApiClient client) =>
+app.MapGet("/them-apples", async (AutoupdateDemoApiClient client) =>
 {
-    return "test";
+    var apples = await client.Apples.GetAsync();
+    return apples?.Select(apple => new AppleDto(apple.Id, apple.Name)).ToArray() ?? [];
 })
-.WithName("GetWeatherForecast")
+.WithName("Apples")
 .WithOpenApi();
 
 app.Run();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
+public sealed record AppleDto(int? Id, string? Name);

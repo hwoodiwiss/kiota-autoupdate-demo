@@ -10,7 +10,8 @@ param (
 
 $buildProjectPaths = @(
     "src/AutoupdateDemoApi/AutoupdateDemoApi.csproj",
-    "src/AutoupdateDemoApi.Client/AutoupdateDemoApi.Client.csproj"
+    "src/AutoupdateDemoApi.Client/AutoupdateDemoApi.Client.csproj",
+    "src/AutoupdateDemoApi.Consumer/AutoupdateDemoApi.Consumer.csproj"
 )
 
 $testProjectPaths = @(
