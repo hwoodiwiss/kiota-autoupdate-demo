@@ -1,5 +1,4 @@
 using AutoupdateDemoApi.Client;
-using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Authentication;
 using Microsoft.Kiota.Http.HttpClientLibrary;
 
