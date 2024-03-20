@@ -23,7 +23,8 @@ builder.Services.AddHttpClient<AutoupdateDemoApiClient>(client =>
     })
     .AddTypedClient((client, sp) =>
     {
-        return new AutoupdateDemoApiClient(new HttpClientRequestAdapter(new AnonymousAuthenticationProvider(), httpClient: client));
+        var adapter = new HttpClientRequestAdapter(new AnonymousAuthenticationProvider(), httpClient: client);
+        return new AutoupdateDemoApiClient(adapter);
     });
 
 var app = builder.Build();
