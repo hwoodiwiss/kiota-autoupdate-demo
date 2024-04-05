@@ -16,20 +16,24 @@ namespace AutoupdateDemoApi.Client {
     /// <summary>
     /// The main entry point of the SDK, exposes the configuration and the fluent API.
     /// </summary>
-    public class AutoupdateDemoApiClient : BaseRequestBuilder {
+    public class AutoupdateDemoApiClient : BaseRequestBuilder 
+    {
         /// <summary>The apples property</summary>
-        public ApplesRequestBuilder Apples { get =>
-            new ApplesRequestBuilder(PathParameters, RequestAdapter);
+        public ApplesRequestBuilder Apples
+        {
+            get => new ApplesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The oranges property</summary>
-        public OrangesRequestBuilder Oranges { get =>
-            new OrangesRequestBuilder(PathParameters, RequestAdapter);
+        public OrangesRequestBuilder Oranges
+        {
+            get => new OrangesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
         /// Instantiates a new <see cref="AutoupdateDemoApiClient"/> and sets the default values.
         /// </summary>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-        public AutoupdateDemoApiClient(IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}", new Dictionary<string, object>()) {
+        public AutoupdateDemoApiClient(IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}", new Dictionary<string, object>())
+        {
             ApiClientBuilder.RegisterDefaultSerializer<JsonSerializationWriterFactory>();
             ApiClientBuilder.RegisterDefaultSerializer<TextSerializationWriterFactory>();
             ApiClientBuilder.RegisterDefaultSerializer<FormSerializationWriterFactory>();
