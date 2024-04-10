@@ -39,6 +39,16 @@ app.UseHttpsRedirection();
 
 app.MapGet("/them-apples", async (AutoupdateDemoApiClient client) =>
 {
+    var apple = await client.Apples[123].GetAsync();
+
+    apple.Name = "New name";
+
+    await client.Apples[123].PutAsync(apple);
+
+    await client.Apples[123].DeleteAsync();
+
+    await client.Apples.PostAsync(apple);
+    
     var apples = await client.Apples.GetAsync();
     return apples?.Select(apple => new AppleDto(apple.Id, apple.Name)).ToArray() ?? [];
 })
