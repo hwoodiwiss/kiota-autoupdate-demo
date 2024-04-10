@@ -21,5 +21,6 @@ app.UseHttpsRedirection();
 
 app.MapRestFor<Apple>();
 app.MapRestFor<Orange>();
+app.MapRestFor<Strawberry>();
 
 app.Run();
