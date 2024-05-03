@@ -6,7 +6,9 @@ using System.IO;
 using System.Linq;
 using System;
 namespace AutoupdateDemoApi.Client.Models {
+    #pragma warning disable CS1591
     public class Strawberry : ApiException, IParsable 
+    #pragma warning restore CS1591
     {
         /// <summary>The id property</summary>
         public int? Id { get; set; }
