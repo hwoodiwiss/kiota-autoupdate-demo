@@ -13,29 +13,30 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System;
-namespace AutoupdateDemoApi.Client {
+namespace AutoupdateDemoApi.Client
+{
     /// <summary>
     /// The main entry point of the SDK, exposes the configuration and the fluent API.
     /// </summary>
-    public class AutoupdateDemoApiClient : BaseRequestBuilder 
+    public class AutoupdateDemoApiClient : BaseRequestBuilder
     {
         /// <summary>The apples property</summary>
-        public ApplesRequestBuilder Apples
+        public AutoupdateDemoApi.Client.Apples.ApplesRequestBuilder Apples
         {
-            get => new ApplesRequestBuilder(PathParameters, RequestAdapter);
+            get => new AutoupdateDemoApi.Client.Apples.ApplesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The oranges property</summary>
-        public OrangesRequestBuilder Oranges
+        public AutoupdateDemoApi.Client.Oranges.OrangesRequestBuilder Oranges
         {
-            get => new OrangesRequestBuilder(PathParameters, RequestAdapter);
+            get => new AutoupdateDemoApi.Client.Oranges.OrangesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The strawberrys property</summary>
-        public StrawberrysRequestBuilder Strawberrys
+        public AutoupdateDemoApi.Client.Strawberrys.StrawberrysRequestBuilder Strawberrys
         {
-            get => new StrawberrysRequestBuilder(PathParameters, RequestAdapter);
+            get => new AutoupdateDemoApi.Client.Strawberrys.StrawberrysRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="AutoupdateDemoApiClient"/> and sets the default values.
+        /// Instantiates a new <see cref="AutoupdateDemoApi.Client.AutoupdateDemoApiClient"/> and sets the default values.
         /// </summary>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         public AutoupdateDemoApiClient(IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}", new Dictionary<string, object>())

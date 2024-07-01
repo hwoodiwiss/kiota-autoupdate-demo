@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System;
-namespace AutoupdateDemoApi.Client.Models {
+namespace AutoupdateDemoApi.Client.Models
+{
     #pragma warning disable CS1591
-    public class Strawberry : ApiException, IParsable 
+    public class Strawberry : ApiException, IParsable
     #pragma warning restore CS1591
     {
         /// <summary>The id property</summary>
@@ -29,12 +30,12 @@ namespace AutoupdateDemoApi.Client.Models {
         /// <summary>
         /// Creates a new instance of the appropriate class based on discriminator value
         /// </summary>
-        /// <returns>A <see cref="Strawberry"/></returns>
+        /// <returns>A <see cref="AutoupdateDemoApi.Client.Models.Strawberry"/></returns>
         /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-        public static Strawberry CreateFromDiscriminatorValue(IParseNode parseNode)
+        public static AutoupdateDemoApi.Client.Models.Strawberry CreateFromDiscriminatorValue(IParseNode parseNode)
         {
             _ = parseNode ?? throw new ArgumentNullException(nameof(parseNode));
-            return new Strawberry();
+            return new AutoupdateDemoApi.Client.Models.Strawberry();
         }
         /// <summary>
         /// The deserialization information for the current model
@@ -44,10 +45,10 @@ namespace AutoupdateDemoApi.Client.Models {
         {
             return new Dictionary<string, Action<IParseNode>>
             {
-                {"id", n => { Id = n.GetIntValue(); } },
-                {"name", n => { Name = n.GetStringValue(); } },
-                {"numberOfSeeds", n => { NumberOfSeeds = n.GetDoubleValue(); } },
-                {"ripeness", n => { Ripeness = n.GetIntValue(); } },
+                { "id", n => { Id = n.GetIntValue(); } },
+                { "name", n => { Name = n.GetStringValue(); } },
+                { "numberOfSeeds", n => { NumberOfSeeds = n.GetDoubleValue(); } },
+                { "ripeness", n => { Ripeness = n.GetIntValue(); } },
             };
         }
         /// <summary>

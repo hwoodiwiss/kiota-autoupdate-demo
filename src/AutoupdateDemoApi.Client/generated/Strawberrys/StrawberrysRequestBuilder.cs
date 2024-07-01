@@ -9,39 +9,40 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace AutoupdateDemoApi.Client.Strawberrys {
+namespace AutoupdateDemoApi.Client.Strawberrys
+{
     /// <summary>
     /// Builds and executes requests for operations under \strawberrys
     /// </summary>
-    public class StrawberrysRequestBuilder : BaseRequestBuilder 
+    public class StrawberrysRequestBuilder : BaseRequestBuilder
     {
         /// <summary>Gets an item from the AutoupdateDemoApi.Client.strawberrys.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="StrawberrysItemRequestBuilder"/></returns>
-        public StrawberrysItemRequestBuilder this[int position]
+        /// <returns>A <see cref="AutoupdateDemoApi.Client.Strawberrys.Item.StrawberrysItemRequestBuilder"/></returns>
+        public AutoupdateDemoApi.Client.Strawberrys.Item.StrawberrysItemRequestBuilder this[int position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 urlTplParams.Add("id", position);
-                return new StrawberrysItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new AutoupdateDemoApi.Client.Strawberrys.Item.StrawberrysItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>Gets an item from the AutoupdateDemoApi.Client.strawberrys.item collection</summary>
         /// <param name="position">Unique identifier of the item</param>
-        /// <returns>A <see cref="StrawberrysItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="AutoupdateDemoApi.Client.Strawberrys.Item.StrawberrysItemRequestBuilder"/></returns>
         [Obsolete("This indexer is deprecated and will be removed in the next major version. Use the one with the typed parameter instead.")]
-        public StrawberrysItemRequestBuilder this[string position]
+        public AutoupdateDemoApi.Client.Strawberrys.Item.StrawberrysItemRequestBuilder this[string position]
         {
             get
             {
                 var urlTplParams = new Dictionary<string, object>(PathParameters);
                 if (!string.IsNullOrWhiteSpace(position)) urlTplParams.Add("id", position);
-                return new StrawberrysItemRequestBuilder(urlTplParams, RequestAdapter);
+                return new AutoupdateDemoApi.Client.Strawberrys.Item.StrawberrysItemRequestBuilder(urlTplParams, RequestAdapter);
             }
         }
         /// <summary>
-        /// Instantiates a new <see cref="StrawberrysRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="AutoupdateDemoApi.Client.Strawberrys.StrawberrysRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -49,7 +50,7 @@ namespace AutoupdateDemoApi.Client.Strawberrys {
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="StrawberrysRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="AutoupdateDemoApi.Client.Strawberrys.StrawberrysRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -59,53 +60,53 @@ namespace AutoupdateDemoApi.Client.Strawberrys {
         /// <summary>
         /// RESTful API for Strawberrys
         /// </summary>
-        /// <returns>A List&lt;Strawberry&gt;</returns>
+        /// <returns>A List&lt;AutoupdateDemoApi.Client.Models.Strawberry&gt;</returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="List<Strawberry>">When receiving a 404 status code</exception>
-        /// <exception cref="ProblemDetails">When receiving a 500 status code</exception>
+        /// <exception cref="List<AutoupdateDemoApi.Client.Models.Strawberry>">When receiving a 404 status code</exception>
+        /// <exception cref="AutoupdateDemoApi.Client.Models.ProblemDetails">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<List<Strawberry>?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<AutoupdateDemoApi.Client.Models.Strawberry>?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<List<Strawberry>> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<List<AutoupdateDemoApi.Client.Models.Strawberry>> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                {"404", Strawberry.CreateFromDiscriminatorValue},
-                {"500", ProblemDetails.CreateFromDiscriminatorValue},
+                { "404", AutoupdateDemoApi.Client.Models.Strawberry.CreateFromDiscriminatorValue },
+                { "500", AutoupdateDemoApi.Client.Models.ProblemDetails.CreateFromDiscriminatorValue },
             };
-            var collectionResult = await RequestAdapter.SendCollectionAsync<Strawberry>(requestInfo, Strawberry.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            var collectionResult = await RequestAdapter.SendCollectionAsync<AutoupdateDemoApi.Client.Models.Strawberry>(requestInfo, AutoupdateDemoApi.Client.Models.Strawberry.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
             return collectionResult?.ToList();
         }
         /// <summary>
         /// RESTful API for Strawberrys
         /// </summary>
-        /// <returns>A <see cref="Strawberry"/></returns>
+        /// <returns>A <see cref="AutoupdateDemoApi.Client.Models.Strawberry"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="ProblemDetails">When receiving a 500 status code</exception>
+        /// <exception cref="AutoupdateDemoApi.Client.Models.ProblemDetails">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Strawberry?> PostAsync(Strawberry body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<AutoupdateDemoApi.Client.Models.Strawberry?> PostAsync(AutoupdateDemoApi.Client.Models.Strawberry body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Strawberry> PostAsync(Strawberry body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<AutoupdateDemoApi.Client.Models.Strawberry> PostAsync(AutoupdateDemoApi.Client.Models.Strawberry body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPostRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                {"500", ProblemDetails.CreateFromDiscriminatorValue},
+                { "500", AutoupdateDemoApi.Client.Models.ProblemDetails.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<Strawberry>(requestInfo, Strawberry.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<AutoupdateDemoApi.Client.Models.Strawberry>(requestInfo, AutoupdateDemoApi.Client.Models.Strawberry.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// RESTful API for Strawberrys
@@ -134,11 +135,11 @@ namespace AutoupdateDemoApi.Client.Strawberrys {
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPostRequestInformation(Strawberry body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(AutoupdateDemoApi.Client.Models.Strawberry body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPostRequestInformation(Strawberry body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPostRequestInformation(AutoupdateDemoApi.Client.Models.Strawberry body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -151,24 +152,24 @@ namespace AutoupdateDemoApi.Client.Strawberrys {
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="StrawberrysRequestBuilder"/></returns>
+        /// <returns>A <see cref="AutoupdateDemoApi.Client.Strawberrys.StrawberrysRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public StrawberrysRequestBuilder WithUrl(string rawUrl)
+        public AutoupdateDemoApi.Client.Strawberrys.StrawberrysRequestBuilder WithUrl(string rawUrl)
         {
-            return new StrawberrysRequestBuilder(rawUrl, RequestAdapter);
+            return new AutoupdateDemoApi.Client.Strawberrys.StrawberrysRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        public class StrawberrysRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters> 
+        public class StrawberrysRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
         {
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        public class StrawberrysRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters> 
+        public class StrawberrysRequestBuilderPostRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
         {
         }
     }
