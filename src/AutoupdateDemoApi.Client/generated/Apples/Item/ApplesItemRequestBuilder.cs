@@ -8,14 +8,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Threading;
 using System;
-namespace AutoupdateDemoApi.Client.Apples.Item {
+namespace AutoupdateDemoApi.Client.Apples.Item
+{
     /// <summary>
     /// Builds and executes requests for operations under \apples\{id}
     /// </summary>
-    public class ApplesItemRequestBuilder : BaseRequestBuilder 
+    public class ApplesItemRequestBuilder : BaseRequestBuilder
     {
         /// <summary>
-        /// Instantiates a new <see cref="ApplesItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="AutoupdateDemoApi.Client.Apples.Item.ApplesItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="pathParameters">Path parameters for the request</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -23,7 +24,7 @@ namespace AutoupdateDemoApi.Client.Apples.Item {
         {
         }
         /// <summary>
-        /// Instantiates a new <see cref="ApplesItemRequestBuilder"/> and sets the default values.
+        /// Instantiates a new <see cref="AutoupdateDemoApi.Client.Apples.Item.ApplesItemRequestBuilder"/> and sets the default values.
         /// </summary>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
@@ -36,7 +37,7 @@ namespace AutoupdateDemoApi.Client.Apples.Item {
         /// <returns>A <see cref="Stream"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="ProblemDetails">When receiving a 500 status code</exception>
+        /// <exception cref="AutoupdateDemoApi.Client.Models.ProblemDetails">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
         public async Task<Stream?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
@@ -49,59 +50,59 @@ namespace AutoupdateDemoApi.Client.Apples.Item {
             var requestInfo = ToDeleteRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                {"500", ProblemDetails.CreateFromDiscriminatorValue},
+                { "500", AutoupdateDemoApi.Client.Models.ProblemDetails.CreateFromDiscriminatorValue },
             };
             return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// RESTful API for Apples
         /// </summary>
-        /// <returns>A <see cref="Apple"/></returns>
+        /// <returns>A <see cref="AutoupdateDemoApi.Client.Models.Apple"/></returns>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="Apple">When receiving a 404 status code</exception>
-        /// <exception cref="ProblemDetails">When receiving a 500 status code</exception>
+        /// <exception cref="AutoupdateDemoApi.Client.Models.Apple">When receiving a 404 status code</exception>
+        /// <exception cref="AutoupdateDemoApi.Client.Models.ProblemDetails">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Apple?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<AutoupdateDemoApi.Client.Models.Apple?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Apple> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<AutoupdateDemoApi.Client.Models.Apple> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             var requestInfo = ToGetRequestInformation(requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                {"404", Apple.CreateFromDiscriminatorValue},
-                {"500", ProblemDetails.CreateFromDiscriminatorValue},
+                { "404", AutoupdateDemoApi.Client.Models.Apple.CreateFromDiscriminatorValue },
+                { "500", AutoupdateDemoApi.Client.Models.ProblemDetails.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<Apple>(requestInfo, Apple.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<AutoupdateDemoApi.Client.Models.Apple>(requestInfo, AutoupdateDemoApi.Client.Models.Apple.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// RESTful API for Apples
         /// </summary>
-        /// <returns>A <see cref="Apple"/></returns>
+        /// <returns>A <see cref="AutoupdateDemoApi.Client.Models.Apple"/></returns>
         /// <param name="body">The request body</param>
         /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
-        /// <exception cref="ProblemDetails">When receiving a 500 status code</exception>
+        /// <exception cref="AutoupdateDemoApi.Client.Models.ProblemDetails">When receiving a 500 status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public async Task<Apple?> PutAsync(Apple body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<AutoupdateDemoApi.Client.Models.Apple?> PutAsync(AutoupdateDemoApi.Client.Models.Apple body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #nullable restore
 #else
-        public async Task<Apple> PutAsync(Apple body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+        public async Task<AutoupdateDemoApi.Client.Models.Apple> PutAsync(AutoupdateDemoApi.Client.Models.Apple body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
             var requestInfo = ToPutRequestInformation(body, requestConfiguration);
             var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                {"500", ProblemDetails.CreateFromDiscriminatorValue},
+                { "500", AutoupdateDemoApi.Client.Models.ProblemDetails.CreateFromDiscriminatorValue },
             };
-            return await RequestAdapter.SendAsync<Apple>(requestInfo, Apple.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+            return await RequestAdapter.SendAsync<AutoupdateDemoApi.Client.Models.Apple>(requestInfo, AutoupdateDemoApi.Client.Models.Apple.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
         }
         /// <summary>
         /// RESTful API for Apples
@@ -149,11 +150,11 @@ namespace AutoupdateDemoApi.Client.Apples.Item {
         /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-        public RequestInformation ToPutRequestInformation(Apple body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(AutoupdateDemoApi.Client.Models.Apple body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
         {
 #nullable restore
 #else
-        public RequestInformation ToPutRequestInformation(Apple body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+        public RequestInformation ToPutRequestInformation(AutoupdateDemoApi.Client.Models.Apple body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
         {
 #endif
             _ = body ?? throw new ArgumentNullException(nameof(body));
@@ -166,31 +167,31 @@ namespace AutoupdateDemoApi.Client.Apples.Item {
         /// <summary>
         /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
         /// </summary>
-        /// <returns>A <see cref="ApplesItemRequestBuilder"/></returns>
+        /// <returns>A <see cref="AutoupdateDemoApi.Client.Apples.Item.ApplesItemRequestBuilder"/></returns>
         /// <param name="rawUrl">The raw URL to use for the request builder.</param>
-        public ApplesItemRequestBuilder WithUrl(string rawUrl)
+        public AutoupdateDemoApi.Client.Apples.Item.ApplesItemRequestBuilder WithUrl(string rawUrl)
         {
-            return new ApplesItemRequestBuilder(rawUrl, RequestAdapter);
+            return new AutoupdateDemoApi.Client.Apples.Item.ApplesItemRequestBuilder(rawUrl, RequestAdapter);
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        public class ApplesItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters> 
-        {
-        }
-        /// <summary>
-        /// Configuration for the request such as headers, query parameters, and middleware options.
-        /// </summary>
-        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        public class ApplesItemRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters> 
+        public class ApplesItemRequestBuilderDeleteRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
         {
         }
         /// <summary>
         /// Configuration for the request such as headers, query parameters, and middleware options.
         /// </summary>
         [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
-        public class ApplesItemRequestBuilderPutRequestConfiguration : RequestConfiguration<DefaultQueryParameters> 
+        public class ApplesItemRequestBuilderGetRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
+        {
+        }
+        /// <summary>
+        /// Configuration for the request such as headers, query parameters, and middleware options.
+        /// </summary>
+        [Obsolete("This class is deprecated. Please use the generic RequestConfiguration class generated by the generator.")]
+        public class ApplesItemRequestBuilderPutRequestConfiguration : RequestConfiguration<DefaultQueryParameters>
         {
         }
     }
