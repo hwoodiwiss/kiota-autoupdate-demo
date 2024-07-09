@@ -10,7 +10,6 @@ using Microsoft.Kiota.Serialization.Multipart;
 using Microsoft.Kiota.Serialization.Text;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using System;
 namespace AutoupdateDemoApi.Client
@@ -18,25 +17,26 @@ namespace AutoupdateDemoApi.Client
     /// <summary>
     /// The main entry point of the SDK, exposes the configuration and the fluent API.
     /// </summary>
-    public class AutoupdateDemoApiClient : BaseRequestBuilder
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.16.0")]
+    public partial class AutoupdateDemoApiClient : BaseRequestBuilder
     {
         /// <summary>The apples property</summary>
-        public AutoupdateDemoApi.Client.Apples.ApplesRequestBuilder Apples
+        public global::AutoupdateDemoApi.Client.Apples.ApplesRequestBuilder Apples
         {
-            get => new AutoupdateDemoApi.Client.Apples.ApplesRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::AutoupdateDemoApi.Client.Apples.ApplesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The oranges property</summary>
-        public AutoupdateDemoApi.Client.Oranges.OrangesRequestBuilder Oranges
+        public global::AutoupdateDemoApi.Client.Oranges.OrangesRequestBuilder Oranges
         {
-            get => new AutoupdateDemoApi.Client.Oranges.OrangesRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::AutoupdateDemoApi.Client.Oranges.OrangesRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>The strawberrys property</summary>
-        public AutoupdateDemoApi.Client.Strawberrys.StrawberrysRequestBuilder Strawberrys
+        public global::AutoupdateDemoApi.Client.Strawberrys.StrawberrysRequestBuilder Strawberrys
         {
-            get => new AutoupdateDemoApi.Client.Strawberrys.StrawberrysRequestBuilder(PathParameters, RequestAdapter);
+            get => new global::AutoupdateDemoApi.Client.Strawberrys.StrawberrysRequestBuilder(PathParameters, RequestAdapter);
         }
         /// <summary>
-        /// Instantiates a new <see cref="AutoupdateDemoApi.Client.AutoupdateDemoApiClient"/> and sets the default values.
+        /// Instantiates a new <see cref="global::AutoupdateDemoApi.Client.AutoupdateDemoApiClient"/> and sets the default values.
         /// </summary>
         /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
         public AutoupdateDemoApiClient(IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}", new Dictionary<string, object>())
