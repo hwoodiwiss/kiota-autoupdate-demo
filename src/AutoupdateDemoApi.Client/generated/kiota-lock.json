@@ -2,7 +2,7 @@
   "descriptionHash": "A691C710399043E23610A419D3369A71C7CA07C9E42F6F158B160629061D13C2FE71261D87FF526EFC63B999FAE3595E056432E0BF0DDE9898A7F5771936F6CD",
   "descriptionLocation": "http://localhost:50000/swagger/v1/swagger.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.16.0",
+  "kiotaVersion": "1.17.0",
   "clientClassName": "AutoupdateDemoApiClient",
   "clientNamespaceName": "AutoupdateDemoApi.Client",
   "language": "CSharp",
